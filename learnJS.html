@@ -1,0 +1,159 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+        <meta name="viewport" content="width=device-width">
+        <meta name="description" content="jsPlumb is an advanced, standards-compliant and easy to use JS 
+        library for building connectivity based applications, such as flowcharts, process flow diagrams, 
+        sequence diagrams, organisation charts, etc. Use with Angular, React or Vue, or Vanilla JS">
+        <link rel="shortcut icon" href="https://jsplumbtoolkit.com/img/favicon.ico">
+        <script src="https://jsplumbtoolkit.com/js/jquery.min.js"></script>
+        <title>jsPlumb - build visual connectivity quickly</title>
+        <meta content="jsPlumb - build visual connectivity quickly" property="og:title">
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="default.css">
+    <link rel="stylesheet" href="demo.css">
+    
+    </head>
+    <body class="jtk-bootstrap jtk-bootstrap-wide" style="background-color:white">
+    
+        <div class="jtk-header">
+    <a class="jtk-logo" href="/"><img src="https://jsplumbtoolkit.com/img/logo-medium-jsplumb.png"></a>
+    
+    <div class="jtk-nav">
+        <div><a href="https://jsplumbtoolkit.com/demos.html">DEMOS</a></div>
+<div><a href="https://docs.jsplumbtoolkit.com/toolkit/current/">DOCS</a></div>
+<div><a href="https://jsplumbtoolkit.com/features">FEATURES</a></div>
+<div><a href="https://jsplumbtoolkit.com/download">DOWNLOAD</a></div>
+<div><a href="https://jsplumbtoolkit.com/purchase">PURCHASE</a></div>
+<div><a href="https://jsplumbtoolkit.com/contact.html">CONTACT</a></div>
+<div><a href="https://blog.jsplumbtoolkit.com/posts/world-cup-visualisation-part-2.html">BLOG</a></div>
+    </div>
+    <div class="social-nav hidden-xs">
+            <style>
+                    .btn-try {
+                        background-color: #489ea5;
+                        border-radius: 3px;
+                        padding: 4px 10px;
+                        color: white;
+                        outline: none;
+                        border: none;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        font-size:17px;
+                    }
+                    .btn-try:hover {
+                        background-color: #5eb4bb;
+                    }       
+
+                    .btn-try a {
+                        color:whitesmoke;
+                        text-decoration: none;
+                    }
+
+                    .btn-try:hover a {
+                        color:white;
+                    }
+            </style>
+            <button class="btn-try">
+                    <a href="https://jsplumbtoolkit.com/contact.html">Try Now</a>
+                </button>
+            </div>
+        </div>
+
+        <script type="text/x-jtk-templates" src="https://jsplumbtoolkit.com/demos/toolkit/flowchart-builder/templates.html"></script>
+       
+        <div class="full-width-container">
+            <div class="container">
+                <div class="row">
+                <div>
+                <!-- ЗАГОЛОВОК СХЕМЫ -->
+                <div class="high-title text-center">Build Connectivity Quickly.</div>
+            </div>
+            <div id="jtk-demo-flowchart" class="jtk-demo-main" style="width:100%;margin-top:-4px;">
+                    <div class="inline-demo-container">
+                            <!-- the node palette -->
+                            <div class="sidebar node-palette">
+                                    <div class="sidebar-item" data-node-type="question" title="Drag to add new">
+                                            <i class="icon-tablet"></i>Question
+                                        </div>
+                                        <div class="sidebar-item" data-node-type="action" title="Drag to add new">
+                                                <i class="icon-eye-open"></i>Action
+                                            </div>
+                                            <div class="sidebar-item" data-node-type="output" title="Drag to add new">
+                                                <i class="icon-eye-open"></i>Output
+                                            </div>
+                            </div>
+                            <!-- this is the main drawing area -->
+                  <div class="jtk-demo-canvas jtk-surface " id="jsPlumb_2_1">
+                        <!-- controls -->
+                        <div class="controls">
+                                <i class="fa fa-arrows selected-mode" mode="pan" title="Pan Mode"></i>
+                                <i class="fa fa-pencil" mode="select" title="Select Mode"></i>
+                                <i class="fa fa-home" reset title="Zoom To Fit"></i>
+                                <i class="fa fa-undo" undo title="Undo last action"></i>
+                                <i class="fa fa-repeat" redo title="Redo last action"></i>
+                            </div>
+                             <!-- miniview -->
+                      <div class="miniview"></div>
+                      <div style="position:absolute; bottom:20px;right:20px">
+                            <a target="_blank" href="https://docs.jsplumbtoolkit.com/toolkit/current/articles/demo-flowchart-builder.html" 
+                            style="background-color: whitesmoke;padding:7px;">how was this app built?</a>
+                    </div>
+            </div>
+        </div>     
+        <!-- the current dataset -->
+        <div class="jtk-demo-dataset"></div>
+        </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://jsplumbtoolkit.com/demos/toolkit/flowchart-builder/node_modules/jsplumbtoolkit/dist/js/jsplumbtoolkit.js"></script>
+<script src="https://jsplumbtoolkit.com/demos/toolkit/flowchart-builder/node_modules/jsplumbtoolkit/dist/js/syntax-highlighter.js"></script>
+<script src="https://jsplumbtoolkit.com/demos/toolkit/flowchart-builder/node_modules/jsplumbtoolkit-undo-redo/dist/js/jsplumbtoolkit-undo-redo.js"></script>
+<script src="https://jsplumbtoolkit.com/demos/toolkit/flowchart-builder/node_modules/jsplumbtoolkit-drop/dist/js/jsplumbtoolkit-drop.js"></script>
+<script src="https://jsplumbtoolkit.com/demos/toolkit/flowchart-builder/app.js"></script>
+<link rel="stylesheet" href="app.css"><div class="full-width-container bg-sepia"></div>
+
+<div class="container">
+    <div style="display:flex">
+            <div style="flex-basis:33%;display:flex;flex-direction:column;align-items: center;    padding: 10px;">
+                    <div class="text-center">
+                        <img src="https://jsplumbtoolkit.com/img/ico-image-2.png">
+                    </div>
+                    <h1 class="text-center title">Advanced UI Features</h1>
+                    <p class="text-center lead">Everything you need to build an application: pan/zoom, a minimap widget, automatic layouts, data binding, and more..</p>
+                </div>
+    
+                <div style="flex-basis:33%;display:flex;flex-direction:column;align-items: center;    padding: 10px;">
+                    <div class="text-center">
+                        <img src="https://jsplumbtoolkit.com/img/bubble-react-angular.png">
+                    </div>
+                    <h1 class="text-center title">Library Integration</h1>
+                    <p class="text-center lead">Using Angular, React, or Vue 2 ? We've got you covered. Or suggest an integration you'd like us to consider.</p>
+                </div>
+    
+                <div style="flex-basis:33%;display:flex;flex-direction:column;align-items: center;    padding: 10px;">
+                    <div class="text-center">
+                        <img src="https://jsplumbtoolkit.com/img/ico-image-3.png">
+                    </div>
+                    <h1 class="text-center title">Standards Based</h1>
+                    <p class="text-center lead">Leverage HTML5 and CSS3. Seamless integration with mobile devices. Never worry about a touch event again!</p>
+                </div>
+            </div>
+    
+        </div>
+    </div>
+
+
+
+        
+
+
+    
+    </body>
+</html>
