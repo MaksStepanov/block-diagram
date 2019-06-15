@@ -10,26 +10,40 @@
         <div id="block-1" class="show" onmousemove="moveElement(event);" draggable="true">
             <img src="images/voltmeter.png" class="picture">
         </div>
-        <input type="button" value="add" onclick="addElement();" onmousedown="viewDiv();" >
+        <input type="button" value="add" onclick="addElement();" >
         <input type="button" value="remove" onclick="removeElement();">
 
-        <div id="block-2" class="show" onmousemove="moveElement(event);" draggable="true">
-                <img src="images/voltmeter.png" class="picture">
-            </div>
             <input type="button" value="add" onclick="addElement();" onmousedown="viewDiv();">
             <input type="button" value="remove" onclick="removeElement();">
 
         <script>
+            var blockId = 1;
             function addElement() {
-                 var element = document.getElementById('block-1'); 
-                 var div = document.createElement('div');
-                 var br = document.createElement('br');
+                var parent = document.getElementById('parent');
+                var div = document.createElement('div');
+                var br = document.createElement('br');
+                var id = 'block-' + blockId;
 
-                 div.id = 'block-1';        
-                 
-                 element.appendChild(div);
-                 element.appendChild(br);
-        }
+                div.id = id;
+
+                parent.appendChild(div);
+                parent.appendChild(br);
+                div.className = "show show_visible ";
+
+                let offsetX;
+                let offsetY;
+
+                div.addEventListener('dragstart', function(event) {
+                    console.log(event.offsetX, event.offsetY);
+                    offsetX = event.offsetX;
+                    offsetY = event.offsetY;
+                });
+                div.addEventListener('dragend', function(event) {
+                    console.log(event.pageX, event.pageY);
+                    div.style.top = (event.pageY - offsetY) + 'px';
+                    div.style.left = (event.pageX - offsetX) + 'px';
+                });
+            }
 
             function removeElement() {
                 var element = document.getElementById('block-1');
@@ -43,46 +57,7 @@
                 if (lastNode) {
                     lastNode.parentNode.removeChild(lastNode);
                 }
-                
-                //document.appendChild.removeChild(element);
-                
-                
-}
-              
-                
-               
-                let element = document.querySelector('#block-1');
-                let offsetX;
-                let offsetY;
-
-                element.addEventListener('dragstart', function(event) {
-                        console.log(event.offsetX, event.offsetY);
-                        offsetX = event.offsetX;
-                        offsetY = event.offsetY;
-                });
-
-                    element.addEventListener('dragend', function(event) {
-                        console.log(event.pageX, event.pageY);
-                        element.style.top = (event.pageY - offsetY) + 'px';
-                        element.style.left = (event.pageX - offsetX) + 'px';
-                    });
-                
-                 
-                  function viewDiv() {
-                       document.getElementById("block-1").className = "show show_visible ";  
-                  }
-                    
-                 
-        </script>
-       
-        <script>
-            /*
-$(function() {
-	
-	$('#block-1').draggable();
-	
-});
-*/
+            }
         </script>
 
     </body>
