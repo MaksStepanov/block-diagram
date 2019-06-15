@@ -18,7 +18,7 @@
 
         <script>
             var blockId = 1;
-            let selectedBlockId;
+            var selectedBlockId;
             function addElement() {
                 var parent = document.getElementById('parent');
                 var div = document.createElement('div');
@@ -29,9 +29,10 @@
                 parent.appendChild(br);
                 div.className = "show show_visible ";
 
-               
-                div.addEventListener('onclick',function(){
+
+                div.addEventListener('click',function(){
                     selectedBlockId = id;
+                    div.className = "show show_visible show_selected ";
                 });
                 let offsetX;
                 let offsetY;
@@ -47,21 +48,11 @@
                 });
             }
             function removeElement() {
-                
                 var element = document.getElementById( selectedBlockId );
+                debugger
                 element.parentNode.removeChild(element);
-                
-                /*var element = document.getElementById('block-1');    
-                var lastNode = element.lastChild;
-                while(lastNode && lastNode.nodeType != 1) {
-                    // перейти к предыдущему узлу
-                    lastNode = lastNode.previousSibling;
-                }
-                if (lastNode) {
-                    lastNode.parentNode.removeChild(lastNode);
-                }*/
             }
-                            
+
         </script>
 
     </body>
