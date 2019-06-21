@@ -1,59 +1,29 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href=style.css>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/jquery-ui.min.js"></script>
-        <script src="https://ajax.aspnetcdn.com/ajax/jquery.ui/1.10.3/themes/sunny/jquery-ui.css"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     </head>
     <body>
-        <div id="parent"></div>
-        <div id="block-1" class="show" onmousemove="moveElement(event);" draggable="true">
-            <img src="images/voltmeter.png" class="picture">
+        <div class="content">
+            <div class="buttons">
+                <input class="control-button" type="button" value="addRezist" onclick="addRezist();" >
+                <input class="control-button" type="button" value="addEarth" onclick="addEarth();" >
+                <input class="control-button" type="button" value="addVoltage" onclick="addVoltage();" >
+                <input class="control-button" type="button" value="remove" onclick="removeElement();">
+            </div>
+            <div id="parent" class="panel">
+                <ul id="contextMenu">
+                    <li class="menuItems" onclick="removeElement();">Delete</li>
+                    <li class="menuItems" onclick="turnRight();">Turn</li>
+                    <li class="menuItems" >Line</li>
+                    
+                </ul>
+            </div>
+            
         </div>
-        <input type="button" value="add" onclick="addElement();" >
-        <input type="button" value="remove" onclick="removeElement();">
-
-            <input type="button" value="add" onclick="addElement();" onmousedown="viewDiv();">
-            <input type="button" value="remove" onclick="removeElement();">
-
-        <script>
-            var blockId = 1;
-            var selectedBlockId;
-            function addElement() {
-                var parent = document.getElementById('parent');
-                var div = document.createElement('div');
-                var br = document.createElement('br');
-                var id = 'block-' + blockId;
-                div.id = id;
-                parent.appendChild(div);
-                parent.appendChild(br);
-                div.className = "show show_visible ";
 
 
-                div.addEventListener('click',function(){
-                    selectedBlockId = id;
-                    div.className = "show show_visible show_selected ";
-                });
-                let offsetX;
-                let offsetY;
-                div.addEventListener('dragstart', function(event) {
-                    console.log(event.offsetX, event.offsetY);
-                    offsetX = event.offsetX;
-                    offsetY = event.offsetY;
-                });
-                div.addEventListener('dragend', function(event) {
-                    console.log(event.pageX, event.pageY);
-                    div.style.top = (event.pageY - offsetY) + 'px';
-                    div.style.left = (event.pageX - offsetX) + 'px';
-                });
-            }
-            function removeElement() {
-                var element = document.getElementById( selectedBlockId );
-                debugger
-                element.parentNode.removeChild(element);
-            }
-
-        </script>
-
+        <script src="./main.js"></script>
+        
     </body>
 </html>
