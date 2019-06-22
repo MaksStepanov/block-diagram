@@ -91,16 +91,5 @@ function turnRight() {
       
   }
 
-/*
-    var mySVG = $('body').connectSVG();
-      mySVG.drawLine({
-        left_node:'.show',
-        right_node:'.show',
-        horizantal_gap:10
-      });
-      $( ".show" ).draggable({
-        drag: function(event, ui){mySVG.redrawLines();}
-      });
-      $( ".show" ).draggable({
-        drag: function(event, ui){mySVG.redrawLines();}
-      });*/
+
+      

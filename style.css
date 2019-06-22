@@ -82,9 +82,8 @@ li.menuItems:hover {
   
 }
 
-
 .rotated {
-
   -webkit-transform: rotate(90deg);
   /* Safari y Chrome */
 }
+
