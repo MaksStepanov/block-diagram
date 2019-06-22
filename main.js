@@ -90,6 +90,17 @@ function turnRight() {
       .css({ transform: "rotate(" + angle + "deg)", transition: "1s" });
       
   }
-
-
-      
+/*
+  var mySVG = $('body').connectSVG();
+  mySVG.drawLine({
+    left_node:'.node1',
+    right_node:'.node2',
+    horizantal_gap:10
+  });
+  $( ".node1" ).draggable({
+    drag: function(event, ui){mySVG.redrawLines();}
+  });
+  $( ".node2" ).draggable({
+    drag: function(event, ui){mySVG.redrawLines();}
+  });
+     */ 
