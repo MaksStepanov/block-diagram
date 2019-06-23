@@ -9,7 +9,7 @@ function addRezist() {
 function addEarth() {
     addElement('earth');
     $('.earth').css('width','60px');
-    
+
 }
 
 function addVoltage() {
@@ -24,7 +24,7 @@ function addElement(param) {
     var br = document.createElement('br');
     var id = `${param}-${blockId}`;
     div.id = id;
-    
+
     title.innerHTML = id;
     title.className = "block-title";
     parent.appendChild(div);
@@ -34,11 +34,11 @@ function addElement(param) {
 
     div.addEventListener('click',function(event){
         selectedBlockId = event.currentTarget.id;
-        div.className =`${param} show show_visible show_selected `; 
+        div.className =`${param} show show_visible show_selected `;
     });
     div.addEventListener('contextmenu',function(event){
         selectedBlockId = event.currentTarget.id;
-        div.className =`${param} show show_visible show_selected `; 
+        div.className =`${param} show show_visible show_selected `;
     });
     let offsetX;
     let offsetY;
@@ -76,19 +76,21 @@ window.addEventListener('click',function(event){
     }
 })
 
-function turnRight() { 
-    turnRezist(90);
+function turnRight(event) {
+    const currentElement = document.getElementById(selectedBlockId);
+    turnRezist(90, currentElement);
+    debugger
   }
 
-  function turnRezist(degrees) {
+  function turnRezist(degrees, element) {
     var angle = $(".rezist").data("angle");
     if (!angle)
       angle = 0;
     angle = +angle + degrees;
-    $(".rezist")
+    $(element)
       .data("angle", angle)
       .css({ transform: "rotate(" + angle + "deg)", transition: "1s" });
-      
+
   }
 /*
   var mySVG = $('body').connectSVG();
@@ -103,4 +105,4 @@ function turnRight() {
   $( ".node2" ).draggable({
     drag: function(event, ui){mySVG.redrawLines();}
   });
-     */ 
+     */
