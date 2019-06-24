@@ -1,108 +1,55 @@
 var blockId = 1;
-var selectedBlockId;
+var rezNumber = 1;
+var earthNumber = 1;
+var voltMeterNumber = 1;
 
+var nodes = new vis.DataSet([
+]);
+
+// create an array with edges
+var edges = new vis.DataSet([
+]);
+
+// create a network
+var container = document.getElementById('parent');
+// provide the data in the vis format
+var data = {
+    nodes: nodes,
+    edges: edges
+};
+var options = {
+    clickToUse: true,
+    autoResize: false,
+    interaction: { multiselect: true }
+};
+
+// initialize your network!
+var network = new vis.Network(container, data, options);
 
 function addRezist() {
-    addElement('rezist');
+    nodes.add({id: blockId, label: `Резистр ${rezNumber}`, shape: 'box'});
+    blockId++;
+    rezNumber++;
 }
 
 function addEarth() {
-    addElement('earth');
-    $('.earth').css('width','60px');
-
+    nodes.add({id: blockId, label: ` Земля ${earthNumber}`, shape: 'square'});
+    blockId++;
+    earthNumber++;
 }
 
 function addVoltage() {
-    addElement('voltage');
-    $('.voltage').css('border-radius', '50%');
-    $('.voltage').css('width','60px');
-}
-function addElement(param) {
-    var parent = document.getElementById('parent');
-    var div = document.createElement('div');
-    var title = document.createElement('span');
-    var br = document.createElement('br');
-    var id = `${param}-${blockId}`;
-    div.id = id;
-
-    title.innerHTML = id;
-    title.className = "block-title";
-    parent.appendChild(div);
-    parent.appendChild(br);
-    //div.appendChild(title);
-    div.className = `${param} show show_visible`;
-
-    div.addEventListener('click',function(event){
-        selectedBlockId = event.currentTarget.id;
-        div.className =`${param} show show_visible show_selected `;
-    });
-    div.addEventListener('contextmenu',function(event){
-        selectedBlockId = event.currentTarget.id;
-        div.className =`${param} show show_visible show_selected `;
-    });
-    let offsetX;
-    let offsetY;
-    div.addEventListener('dragstart', function(event) {
-        console.log(event.offsetX, event.offsetY);
-        offsetX = event.offsetX;
-        offsetY = event.offsetY;
-    });
-    div.addEventListener('dragend', function(event) {
-        console.log(event.pageX, event.pageY);
-        div.style.top = (event.pageY - offsetY) + 'px';
-        div.style.left = (event.pageX - offsetX) + 'px';
-    });
+    nodes.add({id: blockId, label: `Вольтметр ${voltMeterNumber}`, shape: 'circle'});
     blockId++;
+    voltMeterNumber++;
 }
+
+function addLine() {
+    const selectedNodes = network.getSelectedNodes();
+    edges.add({from: selectedNodes[0], to:selectedNodes[1]});
+}
+
 function removeElement() {
-    var element = document.getElementById( selectedBlockId );
-    element.parentNode.removeChild(element);
+    const selectedNodes = network.getSelectedNodes();
+    network.deleteSelected(selectedNodes);
 }
-const menuItems = document.querySelectorAll('.menuItems');
-
-window.addEventListener('contextmenu',function(event){
-    event.preventDefault()
-    contextMenu.style.top = `${event.pageY}px`
-    contextMenu.style.left = `${event.pageX}px`
-    contextMenu.style.transform = 'scale(1)'
-})
-window.addEventListener('click',function(event){
-    let condition = contextMenu.style.transform == 'scale(1)' && event.target != contextMenu;
-    for (let li of menuItems) {
-        condition += event.target != li;
-    }
-    if (condition === menuItems.length + 1) {
-        contextMenu.style.transform = 'scale(0)'
-    }
-})
-
-function turnRight(event) {
-    const currentElement = document.getElementById(selectedBlockId);
-    turnRezist(90, currentElement);
-    debugger
-  }
-
-  function turnRezist(degrees, element) {
-    var angle = $(".rezist").data("angle");
-    if (!angle)
-      angle = 0;
-    angle = +angle + degrees;
-    $(element)
-      .data("angle", angle)
-      .css({ transform: "rotate(" + angle + "deg)", transition: "1s" });
-
-  }
-/*
-  var mySVG = $('body').connectSVG();
-  mySVG.drawLine({
-    left_node:'.node1',
-    right_node:'.node2',
-    horizantal_gap:10
-  });
-  $( ".node1" ).draggable({
-    drag: function(event, ui){mySVG.redrawLines();}
-  });
-  $( ".node2" ).draggable({
-    drag: function(event, ui){mySVG.redrawLines();}
-  });
-     */

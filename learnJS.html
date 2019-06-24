@@ -2,10 +2,10 @@
     <head>
         <link rel="stylesheet" type="text/css" href=style.css>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-
         <script src="https://www.jqueryscript.net/demo/jQuery-Plugin-To-Connect-Two-Html-Elements-with-A-Line/required/script/jquery.svg.min.js"></script>
         <script src="https://www.jqueryscript.net/demo/jQuery-Plugin-To-Connect-Two-Html-Elements-with-A-Line/required/script/jquery.connectingLine.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+        <meta charset="UTF-8">
     </head>
     <body>
         <div class="content">
@@ -13,6 +13,7 @@
                 <input class="control-button" type="button" value="addRezist" onclick="addRezist();" >
                 <input class="control-button" type="button" value="addEarth" onclick="addEarth();" >
                 <input class="control-button" type="button" value="addVoltage" onclick="addVoltage();" >
+                <input class="control-button" type="button" value="addLine" onclick="addLine();" >
                 <input class="control-button" type="button" value="remove" onclick="removeElement();">
             </div>
             <!--<div class="node1">Drag Me</div>
@@ -22,7 +23,7 @@
                     <li class="menuItems" onclick="removeElement();">Delete</li>
                     <li class="menuItems" onclick="turnRight(event);">Turn</li>
                     <li class="menuItems" >Line</li>
-                    
+
 
 
                 </ul>
@@ -31,7 +32,7 @@
 </div>
 
 
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
         <script src="./main.js"></script>
-
     </body>
 </html>

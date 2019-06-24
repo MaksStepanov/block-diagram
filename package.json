@@ -1,0 +1,22 @@
+{
+  "name": "block-diagram",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaksStepanov/block-diagram.git"
+  },
+  "author": "Maksim Stepanov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaksStepanov/block-diagram/issues"
+  },
+  "homepage": "https://github.com/MaksStepanov/block-diagram#readme",
+  "dependencies": {
+    "vis": "^4.21.0"
+  }
+}
