@@ -83,20 +83,16 @@ const menuItems = document.querySelectorAll('.menuItems');
         }
     })
 
-
-
-
-function turnRight(event) {
-    const currentElement = document.getElementById(selectedNodes);
-    turnRezist(90, currentElement);
+function turnRight() {
+    const selectedNode = network.getSelectedNodes()[0];
+    const isRezister = /Резистор/.test(nodes._data[selectedNode].label);
     debugger
-  }
-  function turnRezist(degrees, element) {
-    var angle = $("rezNumber").data("angle");
-    if (!angle)
-      angle = 0;
-    angle = +angle + degrees;
-    $(element)
-    .data("angle", angle)
-    .css({ transform: "rotate(" + angle + "deg)", transition: "1s" });
+    if (isRezister) {
+        if (nodes._data[selectedNode].image === './images/rezistor.png') {
+            nodes.update({id: selectedNode, image: './images/rezistorRotate.png'});
+        }
+        else {
+            nodes.update({id: selectedNode, image: './images/rezistor.png'});
+        }
+    }
   }
