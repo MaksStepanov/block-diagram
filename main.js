@@ -20,14 +20,21 @@ var data = {
 var options = {
     clickToUse: true,
     autoResize: false,
-    interaction: { multiselect: true }
+    interaction: { multiselect: true },
+    edges: {
+        smooth: {
+            type: "vertical",
+            forceDirection: "horizontal",
+            roundness: 0
+        },
+    },
 };
 
 // initialize your network!
 var network = new vis.Network(container, data, options);
 
 function addRezist() {
-    nodes.add({id: blockId, label: `Резистор ${rezNumber}`, shape: 'box'});
+    nodes.add({id: blockId, label: `Резистор ${rezNumber}`, shape: 'image', image: './images/rezistor.png', size: 20});
     blockId++;
     rezNumber++;
 }
