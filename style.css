@@ -10,7 +10,14 @@
 .control-button {
   display: block;
   margin: 10px;
-  width: 100px;
+  height: 35px;
+  width: 150px;
+  border-color: 1px solid #ffffff;
+  border-radius: 10%;
+  color: #ffffff;
+  background-color: #008B8B;
+  font-size: 15px;
+  word-break:break-all;
 }
 
 .panel {

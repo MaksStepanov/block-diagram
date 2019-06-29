@@ -10,20 +10,19 @@
     <body>
         <div class="content">
             <div class="buttons">
-                <input class="control-button" type="button" value="addRezist" onclick="addRezist();" >
-                <input class="control-button" type="button" value="addEarth" onclick="addEarth();" >
-                <input class="control-button" type="button" value="addVoltage" onclick="addVoltage();" >
-                <input class="control-button" type="button" value="addLine" onclick="addLine();" >
-                <input class="control-button" type="button" value="remove" onclick="removeElement();">
+                <input class="control-button" type="button" value="Резистор" onclick="addRezist();" >
+                <input class="control-button" type="button" value="Земля" onclick="addEarth();" >
+                <input class="control-button" type="button" value="Напряжение" onclick="addVoltage();" >
+                <input class="control-button" type="button" value="Линия" onclick="addLine();" >
+                <input class="control-button" type="button" value="Удалить" onclick="removeElement();">
             </div>
             <!--<div class="node1">Drag Me</div>
             <div class="node2">Drag Me</div> -->
-            <div id="parent" class="panel">
+            <div id="parent" class="panel"></div>
                 <ul id="contextMenu">
-                    <li class="menuItems" onclick="removeElement();">Delete</li>
-                    <li class="menuItems" onclick="turnRight(event);">Turn</li>
-                    <li class="menuItems" >Line</li>
-
+                    <li class="menuItems" onclick="removeElement();">Удалить</li>
+                    <li class="menuItems" onclick="turnRight(event);">Поворот компонента</li>
+                    <li class="menuItems" onclick="addLine();">Линия</li>
 
 
                 </ul>

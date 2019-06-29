@@ -27,29 +27,66 @@ var options = {
 var network = new vis.Network(container, data, options);
 
 function addRezist() {
-    nodes.add({id: blockId, label: `Резистр ${rezNumber}`, shape: 'box'});
+    nodes.add({id: blockId, label: `Резистор ${rezNumber}`, shape: 'box'});
     blockId++;
     rezNumber++;
 }
 
 function addEarth() {
-    nodes.add({id: blockId, label: ` Земля ${earthNumber}`, shape: 'square'});
+    nodes.add({id: blockId, label: ` Земля ${earthNumber}`, shape: 'image', image: './images/earth.png'});
     blockId++;
     earthNumber++;
 }
 
 function addVoltage() {
-    nodes.add({id: blockId, label: `Вольтметр ${voltMeterNumber}`, shape: 'circle'});
+    nodes.add({id: blockId, label: `E ${voltMeterNumber}`,shape: 'image', image: './images/voltage.png'});
     blockId++;
     voltMeterNumber++;
 }
 
 function addLine() {
     const selectedNodes = network.getSelectedNodes();
-    edges.add({from: selectedNodes[0], to:selectedNodes[1]});
+    edges.add({from: selectedNodes[0], to:selectedNodes[1], length: 200});
 }
 
 function removeElement() {
     const selectedNodes = network.getSelectedNodes();
     network.deleteSelected(selectedNodes);
 }
+
+const menuItems = document.querySelectorAll('.menuItems');
+
+    window.addEventListener('contextmenu', event =>{
+      event.preventDefault()
+      contextMenu.style.top = `${event.pageY}px`
+      contextMenu.style.left = `${event.pageX}px`
+      contextMenu.style.transform = 'scale(1)'
+    })
+
+    window.addEventListener('click', event =>{
+        let condition = contextMenu.style.transform == 'scale(1)' && event.target != contextMenu
+        for(let li of menuItems) {
+            condition += event.target != li
+        }
+        if(condition === menuItems.length +1) {
+            contextMenu.style.transform = 'scale(0)'
+        }
+    })
+
+
+
+
+function turnRight(event) {
+    const currentElement = document.getElementById(selectedNodes);
+    turnRezist(90, currentElement);
+    debugger
+  }
+  function turnRezist(degrees, element) {
+    var angle = $("rezNumber").data("angle");
+    if (!angle)
+      angle = 0;
+    angle = +angle + degrees;
+    $(element)
+    .data("angle", angle)
+    .css({ transform: "rotate(" + angle + "deg)", transition: "1s" });
+  }
