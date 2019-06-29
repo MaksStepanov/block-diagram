@@ -18,6 +18,9 @@ var data = {
     edges: edges
 };
 var options = {
+    physics: {
+        enabled: false
+      },
     clickToUse: true,
     autoResize: false,
     interaction: { multiselect: true },
